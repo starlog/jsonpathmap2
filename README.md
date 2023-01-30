@@ -9,11 +9,14 @@ const result = jsonpathmap2(objectContainQuery, objectContainData);
 console.log(JSON.stringify(result, null, 2));
 ~~~
 
-Special notation:
-$. denotes jsonpath notation (standard)
-#. denotes jsonpath notation's count in string (custom to this lib)
-%. denotes jsonpath notation's count in number (custom to this lib)
-[!]. denotes separate next [*] iteration within branch (custom to this lib) 
+Special notations
+
+| Notation | Description                 |
+|----------|-----------------------------|
+| $.       | standard jsonpath notation  |
+| #.       | jsonpath notation's count in string (custom to this lib) |
+| %.       | jsonpath notation's count in number (custom to this lib) |  
+| [!].     | separate next [*] iteration within branch (custom to this lib) |  
 
 For example, lets set this as data.
 
