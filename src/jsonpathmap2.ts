@@ -4,6 +4,7 @@ import jp from 'jsonpath';
 // Handling standard json path
 //--------------------------------------------------------------------------------------------------
 function jsonpathMapStep1(paramObject, target, isInsideArray) {
+  // console.log(`isInsideArray:${isInsideArray}`);
   let obj = JSON.parse(JSON.stringify(paramObject));
   const itemList = [];
   const subCallList = [];
@@ -12,23 +13,27 @@ function jsonpathMapStep1(paramObject, target, isInsideArray) {
     if (obj.hasOwnProperty(key)) {
       if (typeof obj[key] === 'object') {
         if (isInsideArray) {
+          // console.log(`Case1 ${JSON.stringify(obj[key])}`);
           obj[key] = jsonpathMapStep1(obj[key], target, isInsideArray);
           subCallList.push({ key: key, data: obj[key] });
         } else {
           if (Array.isArray(obj[key])) {
+            // console.log(`Case2 ${JSON.stringify(obj[key])}`);
             obj[key] = jsonpathMapStep1(obj[key], target, true);
             subCallList.push({ key: key, data: obj[key] });
           } else {
+            // console.log(`Case3 ${JSON.stringify(obj[key])}`);
             obj[key] = jsonpathMapStep1(obj[key], target, false);
             subCallList.push({ key: key, data: obj[key] });
           }
         }
-      } else if ((typeof obj[key] === 'string') && (obj[key].startsWith('$.'))) { // Jsonpath query
+      } else if ((typeof obj[key] === 'string') && (obj[key].startsWith('$'))) { // Jsonpath query
         if (obj[key].indexOf('[!]') === -1) { // Custom step mode
+          // console.log(`STRING: ${isInsideArray} ${obj[key]}`);
           if (isInsideArray) {
             itemList.push({ key: key, target: target, query: obj[key] });
           } else {
-            obj[key] = jp.query(target, obj[key]);
+            obj[key] = jp.query(target, obj[key])[0];
           }
         }
       } else if ((typeof obj[key] === 'string') && (obj[key].startsWith('%.'))) {  // Integer counter
@@ -125,7 +130,6 @@ function jsonpathMapStep2(paramObject, target, index, arrayCount) {
   } else if (Array.isArray(obj) && Array.isArray(obj[0])) { // ArrayMode result cleanup
     obj = obj[0];
   }
-
   return obj;
 }
 
