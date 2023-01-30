@@ -1,6 +1,6 @@
 {
   "name": "jsonpathmap2",
-  "version": "0.0.5",
+  "version": "0.1.2",
   "description" : "Enhanced jsonpathmap from felix",
   "main": "lib/index.js",
   "type": "commonjs",
@@ -11,7 +11,7 @@
   ],
   "author": "Felix Cho (felix.cho.kr@gmail.com)",
   "files": [
-    "dist/lib/**/*"
+    "lib/**/*"
   ],
   "license": "MIT",
   "dependencies": {

@@ -2,12 +2,19 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
-    "sourceMap": true,
     "outDir": "./lib",
+    "baseUrl": "./",
+    "declaration": true,
+    "sourceMap": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@src/*": ["src/*"],
+    }
   },
+  "include": ["src"],
   "exclude": [
     "node_modules",
+    "./lib/**/*"
   ]
 }

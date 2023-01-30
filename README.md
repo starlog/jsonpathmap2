@@ -3,9 +3,11 @@
 Handle jsonpath query for target structure.
 
 Usage:
-const myResult = jsonpathmap2(extract, data);
-extract: object contain query;
-data: object contain data;
+~~~
+import {jsonpathmap2} from 'jsonpathmap2';
+const result = jsonpathmap2(objectContainQuery, objectContainData);
+console.log(JSON.stringify(result, null, 2));
+~~~
 
 Special notation:
 $. denotes jsonpath notation (standard)
