@@ -1,9 +1,9 @@
 {
   "name": "jsonpathmap2",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description" : "Enhanced jsonpathmap from felix",
   "main": "lib/index.js",
-  "type": "module",
+  "type": "commonjs",
   "keywords": [
     "washswat",
     "typescript",
@@ -11,7 +11,7 @@
   ],
   "author": "Felix Cho (felix.cho.kr@gmail.com)",
   "files": [
-    "lib/**/*"
+    "dist/lib/**/*"
   ],
   "license": "MIT",
   "dependencies": {

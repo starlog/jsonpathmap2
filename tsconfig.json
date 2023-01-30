@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "module": "nodenext",
-    "target": "es6",
+    "module": "commonjs",
+    "target": "es5",
     "sourceMap": true,
-    "outDir": "dist",
+    "outDir": "./lib",
     "resolveJsonModule": true,
     "esModuleInterop": true
   },

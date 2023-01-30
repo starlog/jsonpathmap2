@@ -1,4 +1,4 @@
-import {jsonpathmap2} from "../lib/jsonpathmap2.js";
+import {jsonpathmap2} from "../jsonpathmap2";
 
 const extract = {
   count: '%.list[*].name',
