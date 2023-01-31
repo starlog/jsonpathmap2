@@ -28,7 +28,12 @@ function jsonpathMapStep1(paramObject, target, isInsideArray) {
           if (isInsideArray) {
             itemList.push({ key: key, target: target, query: obj[key] });
           } else {
-            obj[key] = jp.query(target, obj[key])[0];
+            const queryResult = jp.query(target, obj[key]);
+            if(Array.isArray(queryResult)){
+              obj[key] = queryResult[0];
+            }else{
+              obj[key] = queryResult;
+            }
           }
         }
       } else if ((typeof obj[key] === 'string') && (obj[key].startsWith('%.'))) {  // Integer counter
