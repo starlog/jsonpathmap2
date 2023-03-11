@@ -1,6 +1,6 @@
 # jsonpathmap2
 
-Handle jsonpath query for target structure..
+Handle jsonpath query for target structure.
 
 Usage:
 ~~~
